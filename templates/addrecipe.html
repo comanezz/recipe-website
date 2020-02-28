@@ -6,6 +6,7 @@
 <div class="section">
   <div class="row">
     <form class="col s12">
+      <!-- Author Name and Serving-->
       <div class="row">
         <div class="input-field col s6">
           <i class="material-icons prefix">account_circle</i>
@@ -13,11 +14,16 @@
           <label for="author_name">Author Name</label>
         </div>
         <div class="input-field col s6">
-          <i class="material-icons prefix">poll</i>
-          <input id="servings" name="servings" type="number" class="validate">
-          <label for="servings">Servings</label>
+          <select id="servings" name="serving_number">
+            <option value="" disabled selected>Choose the servings</option>
+            {% for num in servings %}
+            <option value="{{ num.serving_number}}">{{ num.serving_number}}</option>
+            {% endfor %}
+          </select>
+          <label>Servings</label>
         </div>
       </div>
+      <!-- Recipe name -->
       <div class="row">
         <div class="input-field col s12">
           <i class="material-icons prefix">receipt</i>
@@ -25,6 +31,7 @@
           <label for="recipe_name">Recipe Name</label>
         </div>
       </div>
+      <!-- Recipe description -->
       <div class="row">
         <div class="input-field col s12">
           <i class="material-icons prefix">description</i>
@@ -32,23 +39,28 @@
           <label for="description">Recipe Description</label>
         </div>
       </div>
-      <div class="input-field col s6">
-        <i class="material-icons prefix">schedule</i>
-        <input id="Preparation_time" name="preparation_time"type="number" class="validate">
-        <label for="Preparation_time">Preparation Time (min)</label>
+      <!-- Preparation time and Cooking time -->
+      <div class="row">
+        <div class="input-field col s6">
+          <i class="material-icons prefix">schedule</i>
+          <input id="Preparation_time" name="preparation_time" type="number" class="validate">
+          <label for="Preparation_time">Preparation Time (min)</label>
+        </div>
+        <div class="input-field col s6">
+          <i class="material-icons prefix">schedule</i>
+          <input id="cooking" name="cooking_time" type="number" class="validate">
+          <label for="cooking">Cooking Time (min)</label>
+        </div>
       </div>
-      <div class="input-field col s6">
-        <i class="material-icons prefix">schedule</i>
-        <input id="cooking" name="cooking_time"type="number" class="validate">
-        <label for="cooking">Cooking Time (min)</label>
-      </div>
+      <!-- Ingredients -->
       <div class="row">
         <div class="input-field col s12">
           <i class="material-icons prefix">shopping_basket</i>
-          <textarea id="ingredients" name="ingredients"class="materialize-textarea"></textarea>
+          <textarea id="ingredients" name="ingredients" class="materialize-textarea"></textarea>
           <label for="ingredients">Ingredients</label>
         </div>
       </div>
+      <!-- Methods -->
       <div class="row">
         <div class="input-field col s12">
           <i class="material-icons prefix">restaurant</i>
@@ -58,9 +70,9 @@
       </div>
       <div class="row center-align">
         <button class="btn waves-effect waves-light" type="submit">Add Recipe
-            <i class="material-icons right">playlist_add</i>
+          <i class="material-icons right">playlist_add</i>
         </button>
-    </div>
+      </div>
     </form>
   </div>
 </div>
