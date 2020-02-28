@@ -20,6 +20,10 @@ mongo = PyMongo(app)
 def get_recipes():
     return render_template('recipes.html', recipes= mongo.db.recipes.find())
 
+""" Add recipe form """
+@app.route('/add_recipe')
+def add_recipe():
+    return render_template('addrecipe.html', servings = mongo.db.servings.find().sort('serving_number', 1))
 
 if __name__ == '__main__':
     # This app.run is for heroku
