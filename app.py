@@ -23,7 +23,7 @@ def get_recipes():
 # Add recipe form
 @app.route('/add_recipe')
 def add_recipe():
-    return render_template('addrecipe.html', servings = mongo.db.servings.find().sort('serving_number', 1))
+    return render_template('addrecipe.html', servings = mongo.db.servings.find().sort('serving_number', 1), type = mongo.db.recipe_type.find().sort('type_name', 1))
 
 # Insert recipe to Mongo Database
 @app.route('/insert_recipe', methods=['POST'])
@@ -41,8 +41,8 @@ def recipe_description(recipe_id):
 
 if __name__ == '__main__':
     # This app.run is for heroku
-    app.run(host=os.environ.get('IP'),
-            port=int(os.environ.get('PORT')),
-            debug=True)
+    # app.run(host=os.environ.get('IP'),
+    #         port=int(os.environ.get('PORT')),
+    #         debug=True)
     # This app.run is for local vscode
-    # app.run(debug=True)
+    app.run(debug=True)
