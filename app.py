@@ -25,7 +25,7 @@ def get_recipes():
 def add_recipe():
     return render_template('addrecipe.html', servings = mongo.db.servings.find().sort('serving_number', 1))
 
-# Insert recipe to Mongo Database 
+# Insert recipe to Mongo Database
 @app.route('/insert_recipe', methods=['POST'])
 def insert_recipe():
     recipes = mongo.db.recipes
