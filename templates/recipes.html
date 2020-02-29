@@ -3,14 +3,16 @@
 {% block title %} Recipes {% endblock %}
 
 {% block content %}
-{% for recipe in recipes %}
+
+<div class="row">
   <ul class="collapsible" data-collapsible="accordion">
+  {% for recipe in recipes %}
     <li>
       <div class="collapsible-header"><i class="material-icons">expand_more</i>{{ recipe.recipe_name }}</div>
       <div class="collapsible-body"><span>{{ recipe.recipe_description }}</span></div>
     </li>
+  {% endfor %}
   </ul>
-
-{% endfor %}
+</div>
 
 {% endblock %}
