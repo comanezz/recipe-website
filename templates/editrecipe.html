@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% block title %} Edit recipe {% endblock %}
+
+{% block content %}
+<div class="section">
+  <div class="row">
+    <form action="{{ url_for('update_recipe', recipe_id = recipe._id) }}" method="POST" class="col s12">
+      <!-- Author Name and Serving-->
+      <div class="row">
+        <div class="input-field col s6">
+          <i class="material-icons prefix">account_circle</i>
+          <input id="author_name" name="author_name" type="text" class="validate" value="{{recipe.author_name}}">
+          <label for="author_name">Author Name</label>
+        </div>
+        <div class="input-field col s6">
+          <i class="material-icons prefix">people</i>
+          <select id="servings" name="serving_number">
+            <option value="" disabled selected>Choose the servings</option>
+            {% for num in servings %}
+                {% if num.serving_number == recipe.serving_number %}
+                <option value="{{num.serving_number}}" selected>{{num.serving_number}}</option>
+                {% else %}
+                <option value="{{num.serving_number}}">{{num.serving_number}}</option>
+                {% endif %}
+            {% endfor %}
+          </select>
+          <label>Servings</label>
+        </div>
+      </div>
+      <!-- Recipe name -->
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">receipt</i>
+          <input id="recipe_name" name="recipe_name" type="text" class="validate" value="{{recipe.recipe_name}}">
+          <label for="recipe_name">Recipe Name</label>
+        </div>
+      </div>
+      <!-- Recipe description -->
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">description</i>
+          <textarea id="description" name="recipe_description" class="materialize-textarea">{{recipe.recipe_description}}</textarea>
+          <label for="description">Recipe Description</label>
+        </div>
+      </div>
+      <!-- Recipe Type with Preparation time and Cooking time -->
+      <div class="row">
+        <div class="input-field col s4">
+          <i class="material-icons prefix">poll</i>
+          <select id="recipe_type" name="recipe_type">
+            <option value="" disabled selected>Choose the recipe type</option>
+            {% for num in type %}
+                {% if num.type_name == recipe.recipe_type %}
+                <option value="{{num.type_name}}" selected>{{ num.type_name}}</option>
+                {% else %}
+                <option value="{{num.type_name}}">{{ num.type_name}}</option>
+                {% endif %}
+            {% endfor %}
+          </select>
+          <label>Recipe type</label>
+        </div>
+        <div class="input-field col s4">
+          <i class="material-icons prefix">schedule</i>
+          <input id="Preparation_time" name="preparation_time" type="number" class="validate" value="{{recipe.preparation_time}}">
+          <label for="Preparation_time">Preparation Time (min)</label>
+        </div>
+        <div class="input-field col s4">
+          <i class="material-icons prefix">schedule</i>
+          <input id="cooking" name="cooking_time" type="number" class="validate" value="{{recipe.cooking_time}}">
+          <label for="cooking">Cooking Time (min)</label>
+        </div>
+      </div>
+      <!-- Ingredients -->
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">shopping_basket</i>
+          <textarea id="ingredients" name="ingredients" class="materialize-textarea">{{recipe.ingredients}}</textarea>
+          <label for="ingredients">Ingredients</label>
+        </div>
+      </div>
+      <!-- Methods -->
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">restaurant</i>
+          <textarea id="methods" name="methods" class="materialize-textarea">{{recipe.methods}}</textarea>
+          <label for="methods">Methods</label>
+        </div>
+      </div>
+      <div class="row center-align">
+        <button class="btn waves-effect waves-light" type="submit">edit recipe
+          <i class="material-icons right">playlist_add</i>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}
