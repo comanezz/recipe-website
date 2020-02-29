@@ -32,7 +32,11 @@ def insert_recipe():
     recipes.insert_one(request.form.to_dict())
     return redirect(url_for('get_recipes'))
 
-
+# Recipe description the recipe selected
+@app.route('/recipe/<recipe_id>')
+def recipe_description(recipe_id):
+    one_recipe = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})
+    return render_template('recipedescription.html', recipe = one_recipe)
 
 
 if __name__ == '__main__':
