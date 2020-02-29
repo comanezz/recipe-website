@@ -23,7 +23,7 @@ def get_recipes():
 # Add recipe form
 @app.route('/add_recipe')
 def add_recipe():
-    return render_template('addrecipe.html', servings = mongo.db.servings.find().sort('serving_number', 1), type = mongo.db.recipe_type.find().sort('type_name', 1))
+    return render_template('addrecipe.html', servings = mongo.db.servings.find(), type = mongo.db.recipe_type.find().sort('type_name', 1))
 
 # Insert recipe to Mongo Database
 @app.route('/insert_recipe', methods=['POST'])
@@ -38,11 +38,18 @@ def recipe_description(recipe_id):
     one_recipe = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})
     return render_template('recipedescription.html', recipe = one_recipe)
 
+# Edit the recipe
+@app.route('/edit_recipe/<recipe_id>')
+def edit_recipe(recipe_id):
+    the_recipe = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})
+    all_type = mongo.db.recipe_type.find().sort('type_name', 1)
+    all_servings = mongo.db.servings.find()
+    return render_template('editrecipe.html', recipe = the_recipe, type = all_type, servings = all_servings)
 
 if __name__ == '__main__':
     # This app.run is for heroku
-    # app.run(host=os.environ.get('IP'),
-    #         port=int(os.environ.get('PORT')),
-    #         debug=True)
+    app.run(host=os.environ.get('IP'),
+            port=int(os.environ.get('PORT')),
+            debug=True)
     # This app.run is for local vscode
-    app.run(debug=True)
+    # app.run(debug=True)
