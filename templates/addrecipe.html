@@ -18,7 +18,7 @@
           <select id="servings" name="serving_number">
             <option value="" disabled selected>Choose the servings</option>
             {% for num in servings %}
-            <option value="{{ num.serving_number}}">{{ num.serving_number}}</option>
+            <option value="{{ num.serving_number}}">{{num.serving_number}}</option>
             {% endfor %}
           </select>
           <label>Servings</label>
@@ -47,7 +47,7 @@
           <select id="recipe_type" name="recipe_type">
             <option value="" disabled selected>Choose the recipe type</option>
             {% for num in type %}
-            <option value="{{ num.type_name}}">{{ num.type_name}}</option>
+            <option value="{{num.type_name}}">{{num.type_name}}</option>
             {% endfor %}
           </select>
           <label>Recipe type</label>
