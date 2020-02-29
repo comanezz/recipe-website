@@ -46,10 +46,28 @@ def edit_recipe(recipe_id):
     all_servings = mongo.db.servings.find()
     return render_template('editrecipe.html', recipe = the_recipe, type = all_type, servings = all_servings)
 
+# Update the recipe
+@app.route('/update_recipe/<recipe_id>', methods=['POST'])
+def update_recipe(recipe_id):
+    recipe = mongo.db.recipes
+    recipe.update({'_id': ObjectId(recipe_id)},
+    {
+        'author_name': request.form.get('author_name'),
+        'serving_number': request.form.get('serving_number'),
+        'recipe_name': request.form.get('recipe_name'),
+        'recipe_description': request.form.get('recipe_description'),
+        'recipe_type': request.form.get('recipe_type'),
+        'preparation_time': request.form.get('preparation_time'),
+        'cooking_time': request.form.get('cooking_time'),
+        'ingredients': request.form.get('ingredients'),
+        'methods': request.form.get('methods')
+    })
+    return redirect(url_for('get_recipes'))
+
 if __name__ == '__main__':
     # This app.run is for heroku
-    app.run(host=os.environ.get('IP'),
-            port=int(os.environ.get('PORT')),
-            debug=True)
+    # app.run(host=os.environ.get('IP'),
+    #         port=int(os.environ.get('PORT')),
+    #         debug=True)
     # This app.run is for local vscode
-    # app.run(debug=True)
+    app.run(debug=True)
