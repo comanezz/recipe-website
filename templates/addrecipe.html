@@ -14,6 +14,7 @@
           <label for="author_name">Author Name</label>
         </div>
         <div class="input-field col s6">
+          <i class="material-icons prefix">people</i>
           <select id="servings" name="serving_number">
             <option value="" disabled selected>Choose the servings</option>
             {% for num in servings %}
@@ -39,14 +40,24 @@
           <label for="description">Recipe Description</label>
         </div>
       </div>
-      <!-- Preparation time and Cooking time -->
+      <!-- Recipe Type with Preparation time and Cooking time -->
       <div class="row">
-        <div class="input-field col s6">
+        <div class="input-field col s4">
+          <i class="material-icons prefix">poll</i>
+          <select id="recipe_type" name="recipe_type">
+            <option value="" disabled selected>Choose the recipe type</option>
+            {% for num in type %}
+            <option value="{{ num.type_name}}">{{ num.type_name}}</option>
+            {% endfor %}
+          </select>
+          <label>Recipe type</label>
+        </div>
+        <div class="input-field col s4">
           <i class="material-icons prefix">schedule</i>
           <input id="Preparation_time" name="preparation_time" type="number" class="validate">
           <label for="Preparation_time">Preparation Time (min)</label>
         </div>
-        <div class="input-field col s6">
+        <div class="input-field col s4">
           <i class="material-icons prefix">schedule</i>
           <input id="cooking" name="cooking_time" type="number" class="validate">
           <label for="cooking">Cooking Time (min)</label>
