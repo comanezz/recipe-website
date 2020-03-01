@@ -64,6 +64,13 @@ def update_recipe(recipe_id):
     })
     return redirect(url_for('get_recipes'))
 
+# Delete the recipe
+@app.route('/delete_recipe/<recipe_id>')
+def delete_recipe(recipe_id):
+    recipe = mongo.db.recipes
+    recipe.delete_one({'_id': ObjectId(recipe_id)})
+    return redirect(url_for('get_recipes'))
+
 if __name__ == '__main__':
     # This app.run is for heroku
     app.run(host=os.environ.get('IP'),
