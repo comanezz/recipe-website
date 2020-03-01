@@ -66,8 +66,8 @@ def update_recipe(recipe_id):
 
 if __name__ == '__main__':
     # This app.run is for heroku
-    # app.run(host=os.environ.get('IP'),
-    #         port=int(os.environ.get('PORT')),
-    #         debug=True)
+    app.run(host=os.environ.get('IP'),
+            port=int(os.environ.get('PORT')),
+            debug=True)
     # This app.run is for local vscode
-    app.run(debug=True)
+    # app.run(debug=True)
