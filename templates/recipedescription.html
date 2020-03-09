@@ -3,9 +3,61 @@
 {% block title %} Recipe description {% endblock %}
 
 {% block content %}
+    <div class="row">
+        <div class="col s12 center-align blue-text text-darken-2">
+            <h3>{{ recipe.recipe_name }}</h3>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col s12">
+            <h5 class="blue-text text-darken-2">Description</h5>
+            <p>{{ recipe.recipe_description }}</p>
+        </div>
+    </div>
 
-    <h3>{{ recipe.recipe_name }}</h3>
-    <a href="{{ url_for('edit_recipe', recipe_id = recipe._id)}}" class="waves-effect waves-light btn btn_small">Edit</a>
+    <div class="row">
+        <div class="col s12 blue-text text-darken-2">
+            <h5>About this recipe</h5>
+        </div>
+        <div class="col s3">
+            <p>Recipe type: {{ recipe.recipe_type }}</p>
+        </div>
+        <div class="col s3">
+            <p>Preparation time: {{ recipe.preparation_time }}</p>
+        </div>
+        <div class="col s3">
+            <p>Cooking time: {{ recipe.cooking_time }}</p>
+        </div>
+        <div class="col s3">
+            <p> Servings: {{ recipe.serving_number }}</p>
+        </div>
+    </div>
 
+    <div class="row">
+        <div class="col s12">
+            <h5>Ingredients</h5>
+            <p>{{ recipe.ingredients }}</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s12">
+            <h5>Description</h5>
+            <p>{{ recipe.methods }}</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s12">
+            <p>Recipe from {{ recipe.author_name }}</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s12 center-align">
+            <a href="{{ url_for('edit_recipe', recipe_id = recipe._id)}}" class="waves-effect waves-light btn btn_small">Edit</a>
+        </div>
+    </div>
 
 {% endblock %}
