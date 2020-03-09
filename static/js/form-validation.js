@@ -10,6 +10,7 @@ $(document).ready(function() {
         var ingredients = $('#ingredients').val();
         var methods = $('#methods').val();
 
+        // Check if the fiels are empty or not
         if (author_name == '' || servings == '' || recipe_name == ''|| description == ''|| 
             recipe_type == ''|| Preparation_time == ''|| cooking == ''|| ingredients == ''|| methods == '') {
             alert("Please fill all the fields !")
