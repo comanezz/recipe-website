@@ -71,6 +71,14 @@ def delete_recipe(recipe_id):
     recipe.delete_one({'_id': ObjectId(recipe_id)})
     return redirect(url_for('get_recipes'))
 
+# --------------- Type ----------------
+
+# Add recipe type
+@app.route('/get_type')
+def get_type():
+    return render_template('type.html', type = mongo.db.recipe_type.find())
+    
+
 if __name__ == '__main__':
     # This app.run is for heroku
     app.run(host=os.environ.get('IP'),

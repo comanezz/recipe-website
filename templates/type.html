@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %} Type {% endblock %}
+
+{% block content %}
+
+<h3>Type</h3>
+
+<div class="row">
+    <ul class="collapsible" data-collapsible="accordion">
+        {% for num in type %}
+        <li>
+            <div class="collapsible-header">
+                <div class="col s8">
+                    <strong>{{ num.type_name }}</strong>
+                </div>
+                <div class="col s3 last-btn">
+                    <a href=""
+                        class="waves-effect waves-light btn btn_small">Edit</a>
+                </div>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <!-- Add type button -->
+    <div class="row">
+        <div class="col">
+            <a href="" class="waves-effect waves-light btn">
+                <i class="material-icons right">playlist_add</i>Add Category
+            </a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
