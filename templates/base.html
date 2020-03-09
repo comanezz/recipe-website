@@ -29,7 +29,7 @@
             </div>
           </nav>
     </header>
-    
+
     <div class="container">
         {% block content %}
         {% endblock %}
@@ -43,6 +43,9 @@
     <!-- Materialize Javascript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script src="{{ url_for('static', filename='js/materialize.js') }}"></script>
+
+    <!-- Javascript for form validation  -->
+    <script src="{{ url_for('static', filename='js/form-validation.js') }}"></script>
             
 </body>
 </html>
