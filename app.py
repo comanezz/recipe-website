@@ -77,6 +77,13 @@ def delete_recipe(recipe_id):
 @app.route('/get_type')
 def get_type():
     return render_template('type.html', type = mongo.db.recipe_type.find())
+
+# Delete recipe type
+@app.route('/delete_type/<type_id>')
+def delete_type(type_id):
+    recipe_type = mongo.db.recipe_type
+    recipe_type.delete_one({'_id': ObjectId(type_id)})
+    return redirect(url_for('get_type'))
     
 
 if __name__ == '__main__':
