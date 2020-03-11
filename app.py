@@ -73,10 +73,23 @@ def delete_recipe(recipe_id):
 
 # --------------- Type ----------------
 
-# Add recipe type
+# Get recipe type
 @app.route('/get_type')
 def get_type():
     return render_template('type.html', type = mongo.db.recipe_type.find())
+
+# Add type form
+@app.route('/add_type')
+def add_type():
+    return render_template('addtype.html')
+
+# Insert recipe type
+@app.route('/insert_type', methods=['POST'])
+def insert_type():
+    recipe_type = mongo.db.recipe_type
+    type_doc = {'type_name': request.form.get('type_name')}
+    recipe_type.insert_one(request.form.to_dict())
+    return redirect(url_for('get_type'))
 
 # Delete recipe type
 @app.route('/delete_type/<type_id>')
