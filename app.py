@@ -15,6 +15,7 @@ app.config["MONGO_URI"] = os.environ.get('MYMONGO_URI')
 
 mongo = PyMongo(app)
 
+# --------------- Recipe ----------------
 @app.route('/')
 @app.route('/get_recipes')
 def get_recipes():
@@ -71,6 +72,25 @@ def delete_recipe(recipe_id):
     recipe = mongo.db.recipes
     recipe.delete_one({'_id': ObjectId(recipe_id)})
     return redirect(url_for('get_recipes'))
+
+# Search recipe page
+@app.route('/search_recipe')
+def search_recipe():
+    return render_template("searchrecipe.html")
+
+# Search recipe name
+@app.route('/search_recipe_name', methods=['POST'])
+def search_recipe_name():
+    # Get the search term from the form
+    search_term = request.form.get('recipe_name')
+
+    # Create index
+    mongo.db.recipes.create_index( [('recipe_name', 'text')] )
+
+    # Find the search term
+    recipe_found = mongo.db.recipes.find({ '$text': { '$search': search_term } })
+    
+    return render_template('recipefound.html', recipe = recipe_found)
 
 # --------------- Type ----------------
 
