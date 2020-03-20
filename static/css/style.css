@@ -4,6 +4,12 @@
     color: #ee6e73;
 }
 
+/* Recipe page and Recipe found page */
+/* Card image */
+#card-image-size {
+    max-height: 40%;
+}
+
 /* Recipe description page */
 /* Image in Description */
 #description-page .display {
