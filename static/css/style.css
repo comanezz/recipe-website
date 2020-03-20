@@ -1,3 +1,9 @@
+/* Recipe page */
+/* View button */
+.card-action #red-color {
+    color: #ee6e73;
+}
+
 /* Image in Description */
 .image-description {
     width: 150px;
