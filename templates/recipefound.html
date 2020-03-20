@@ -7,24 +7,28 @@
 <h3>Recipes found</h3>
 
 <div class="row">
-  <ul class="collapsible" data-collapsible="accordion">
-  {% for num in recipe %}
-    <li>
-      <div class="collapsible-header">
-        <div class="col s1">
-        <i class="material-icons">expand_more</i>
-      </div>
-      <div class="col s8">
-        {{ num.recipe_name }}
-      </div>
-      <div class="col s3 last-btn">
-        <a href="{{ url_for('recipe_description', recipe_id = num._id)}}" class="waves-effect waves-light btn btn_small">View</a>
-      </div>
-      </div>
-      <div class="collapsible-body"><span>{{ num.recipe_description }}</span></div>
-    </li>
-  {% endfor %}
-  </ul>
+    {% for num in recipe %}
+    <div class="col s12 m4">
+        <div class="card medium">
+            <div class="card-image">
+                <!-- if the image link is empty show a basic image -->
+                {% if num.image_link == "" %}
+                <img class="image-description"
+                    src="https://images.squarespace-cdn.com/content/v1/5c5c3833840b161566b02a76/1573133725500-Y5PCN0V04I86HDAT8AT0/ke17ZwdGBToddI8pDm48kLkXF2pIyv_F2eUT9F60jBl7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0iyqMbMesKd95J-X4EagrgU9L3Sa3U8cogeb0tjXbfawd0urKshkc5MgdBeJmALQKw/WBC_7095.jpg?format=1500w">
+                {% else %}
+                <img class="image-description" src="{{num.image_link}}">
+                {% endif %}
+                <span class="card-title">{{ num.recipe_name }}</span>
+            </div>
+            <div class="card-content">
+                <p>{{ num.recipe_description }}</p>
+            </div>
+            <div class="card-action">
+                <a id="red-color" href="{{ url_for('recipe_description', recipe_id = num._id)}}">View</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
 </div>
 
 {% endblock %}
