@@ -6,12 +6,12 @@
 
 /* Recipe description page */
 /* Image in Description */
-.display {
+#description-page .display {
     display: flex;
     justify-content: center;
 }
 
-.image-description {
+#description-page .image-description {
     width: 100%;
     height: 100%;
     max-width: 372px;
