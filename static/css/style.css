@@ -23,3 +23,10 @@
     max-width: 372px;
     max-height: 297px;
 }
+
+@media (min-width: 992px) {
+    /* Navbar */
+    #menu-logo {
+        margin-left: 10px;
+    }
+}
