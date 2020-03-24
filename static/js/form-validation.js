@@ -17,6 +17,7 @@ $(document).ready(function() {
         if (author_name !== '' && recipe_name !== ''&& description !== ''&& 
             Preparation_time !== ''&& cooking !== ''&& ingredients !== ''&& methods !== '' && options_list.hasClass("active", "selected")) {
                 for(var i; i<select_option.length; i++) {
+                    // Check if it has not the class selected. This if function was taken from https://stackoverflow.com/questions/10539162/using-jquery-to-see-if-a-div-has-a-child-with-a-certain-class
                     if (!select_options[i].find('li.selected').length !== 0){
                         array_value = false;
                     }
