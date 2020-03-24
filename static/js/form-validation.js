@@ -9,12 +9,24 @@ $(document).ready(function() {
         var methods = $('#methods').val();
         /* This replace the select options elements because 
         they are actually hidden from view, and replaced with something else. */
-        var select_options = $(".select-dropdown li");
+        var select_options = $(".dropdown-content");
+        var options_list = $(".dropdown-content li");
+        var array_value = true;
 
         // Check if the fields are not empty
         if (author_name !== '' && recipe_name !== ''&& description !== ''&& 
-            Preparation_time !== ''&& cooking !== ''&& ingredients !== ''&& methods !== '' && select_option.hasClass("active", "selected")) {
-                Materialize.toast('You have successfully registered a recipe', 4000)
+            Preparation_time !== ''&& cooking !== ''&& ingredients !== ''&& methods !== '' && options_list.hasClass("active", "selected")) {
+                for(var i; i<select_option.length; i++) {
+                    if (!select_options[i].find('li.selected').length !== 0){
+                        array_value = false;
+                    }
+                }
+                if (array_value) {
+                    Materialize.toast('You have successfully registered a recipe', 4000)    
+                }else {
+                    Materialize.toast('Please fill all the required fields', 4000)
+
+                }
         } else {
             Materialize.toast('Please fill all the required fields', 4000)
         }
