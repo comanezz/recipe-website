@@ -10,7 +10,7 @@
       <div class="row">
         <div class="input-field col s6">
           <i class="material-icons prefix">account_circle</i>
-          <input id="author_name" name="author_name" type="text" class="validate" value="{{recipe.author_name}}">
+          <input id="author_name" name="author_name" type="text" class="validate" value="{{recipe.author_name}}" required>
           <label for="author_name">Author Name</label>
         </div>
         <div class="input-field col s6">
@@ -32,7 +32,7 @@
       <div class="row">
         <div class="input-field col s12">
           <i class="material-icons prefix">receipt</i>
-          <input id="recipe_name" name="recipe_name" type="text" class="validate" value="{{recipe.recipe_name}}">
+          <input id="recipe_name" name="recipe_name" type="text" class="validate" value="{{recipe.recipe_name}}" required>
           <label for="recipe_name">Recipe Name</label>
         </div>
       </div>
@@ -40,7 +40,7 @@
       <div class="row">
         <div class="input-field col s12">
           <i class="material-icons prefix">description</i>
-          <textarea id="description" name="recipe_description" class="materialize-textarea">{{recipe.recipe_description}}</textarea>
+          <textarea id="description" name="recipe_description" class="materialize-textarea" required>{{recipe.recipe_description}}</textarea>
           <label for="description">Recipe Description</label>
         </div>
       </div>
@@ -62,18 +62,18 @@
         </div>
         <div class="input-field col s12 m4">
           <i class="material-icons prefix">schedule</i>
-          <input id="Preparation_time" name="preparation_time" type="number" class="validate" value="{{recipe.preparation_time}}">
+          <input id="Preparation_time" name="preparation_time" type="number" class="validate" value="{{recipe.preparation_time}}" required>
           <label for="Preparation_time">Preparation Time (min)</label>
         </div>
         <div class="input-field col s12 m4">
           <i class="material-icons prefix">schedule</i>
-          <input id="cooking" name="cooking_time" type="number" class="validate" value="{{recipe.cooking_time}}">
+          <input id="cooking" name="cooking_time" type="number" class="validate" value="{{recipe.cooking_time}}" required>
           <label for="cooking">Cooking Time (min)</label>
         </div>
       </div>
       <!-- Image link -->
       <div class="row">
-        <div class="input-field col s12 m4">
+        <div class="input-field col s12">
           <i class="material-icons prefix">image_search</i>
           <input id="image_link" name="image_link" type="text" class="validate" value={{recipe.image_link}}>
           <label for="image_link">Image link (optional)</label>
@@ -83,7 +83,7 @@
       <div class="row">
         <div class="input-field col s12">
           <i class="material-icons prefix">shopping_basket</i>
-          <textarea id="ingredients" name="ingredients" class="materialize-textarea">{{recipe.ingredients}}</textarea>
+          <textarea id="ingredients" name="ingredients" class="materialize-textarea" required>{{recipe.ingredients}}</textarea>
           <label for="ingredients">Ingredients</label>
         </div>
       </div>
@@ -91,7 +91,7 @@
       <div class="row">
         <div class="input-field col s12">
           <i class="material-icons prefix">restaurant</i>
-          <textarea id="methods" name="methods" class="materialize-textarea">{{recipe.methods}}</textarea>
+          <textarea id="methods" name="methods" class="materialize-textarea" required>{{recipe.methods}}</textarea>
           <label for="methods">Methods</label>
         </div>
       </div>
