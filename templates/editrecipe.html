@@ -46,7 +46,7 @@
       </div>
       <!-- Recipe Type with Preparation time and Cooking time -->
       <div class="row">
-        <div class="input-field col s4">
+        <div class="input-field col s12 m4">
           <i class="material-icons prefix">poll</i>
           <select id="recipe_type" name="recipe_type">
             <option value="" disabled selected>Choose the recipe type</option>
@@ -60,12 +60,12 @@
           </select>
           <label>Recipe type</label>
         </div>
-        <div class="input-field col s4">
+        <div class="input-field col s12 m4">
           <i class="material-icons prefix">schedule</i>
           <input id="Preparation_time" name="preparation_time" type="number" class="validate" value="{{recipe.preparation_time}}">
           <label for="Preparation_time">Preparation Time (min)</label>
         </div>
-        <div class="input-field col s4">
+        <div class="input-field col s12 m4">
           <i class="material-icons prefix">schedule</i>
           <input id="cooking" name="cooking_time" type="number" class="validate" value="{{recipe.cooking_time}}">
           <label for="cooking">Cooking Time (min)</label>
@@ -73,7 +73,7 @@
       </div>
       <!-- Image link -->
       <div class="row">
-        <div class="input-field col s12">
+        <div class="input-field col s12 m4">
           <i class="material-icons prefix">image_search</i>
           <input id="image_link" name="image_link" type="text" class="validate" value={{recipe.image_link}}>
           <label for="image_link">Image link (optional)</label>
