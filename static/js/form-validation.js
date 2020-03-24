@@ -14,7 +14,6 @@ $(document).ready(function() {
         if (author_name == '' || servings == '' || recipe_name == ''|| description == ''|| 
             recipe_type == ''|| Preparation_time == ''|| cooking == ''|| ingredients == ''|| methods == '') {
             alert("Please fill all the fields !")
-            return false;
         } else {
             alert('You have successfully registered a recipe')
         }

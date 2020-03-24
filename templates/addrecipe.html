@@ -12,12 +12,12 @@
       <div class="row">
         <div class="input-field col s6">
           <i class="material-icons prefix">account_circle</i>
-          <input id="author_name" name="author_name" type="text" class="validate">
+          <input id="author_name" name="author_name" type="text" class="validate" required>
           <label for="author_name">Author Name</label>
         </div>
         <div class="input-field col s6">
           <i class="material-icons prefix">people</i>
-          <select id="servings" name="serving_number">
+          <select id="servings" name="serving_number" required>
             <option value="" disabled selected>Choose the servings</option>
             {% for num in servings %}
             <option value="{{ num.serving_number}}">{{num.serving_number}}</option>
@@ -30,7 +30,7 @@
       <div class="row">
         <div class="input-field col s12">
           <i class="material-icons prefix">receipt</i>
-          <input id="recipe_name" name="recipe_name" type="text" class="validate">
+          <input id="recipe_name" name="recipe_name" type="text" class="validate" required>
           <label for="recipe_name">Recipe Name</label>
         </div>
       </div>
@@ -38,7 +38,7 @@
       <div class="row">
         <div class="input-field col s12">
           <i class="material-icons prefix">description</i>
-          <textarea id="description" name="recipe_description" class="materialize-textarea"></textarea>
+          <textarea id="description" name="recipe_description" class="materialize-textarea" required></textarea>
           <label for="description">Recipe Description</label>
         </div>
       </div>
@@ -46,7 +46,7 @@
       <div class="row">
         <div class="input-field col s12 m4">
           <i class="material-icons prefix">poll</i>
-          <select id="recipe_type" name="recipe_type">
+          <select id="recipe_type" name="recipe_type" required>
             <option value="" disabled selected>Choose the recipe type</option>
             {% for num in type %}
             <option value="{{num.type_name}}">{{num.type_name}}</option>
@@ -56,12 +56,12 @@
         </div>
         <div class="input-field col s12 m4">
           <i class="material-icons prefix">schedule</i>
-          <input id="Preparation_time" name="preparation_time" type="number" class="validate">
+          <input id="Preparation_time" name="preparation_time" type="number" class="validate" required>
           <label for="Preparation_time">Preparation Time (min)</label>
         </div>
         <div class="input-field col s12 m4">
           <i class="material-icons prefix">schedule</i>
-          <input id="cooking" name="cooking_time" type="number" class="validate">
+          <input id="cooking" name="cooking_time" type="number" class="validate" required>
           <label for="cooking">Cooking Time (min)</label>
         </div>
       </div>
@@ -77,7 +77,7 @@
       <div class="row">
         <div class="input-field col s12">
           <i class="material-icons prefix">shopping_basket</i>
-          <textarea id="ingredients" name="ingredients" class="materialize-textarea"></textarea>
+          <textarea id="ingredients" name="ingredients" class="materialize-textarea" required></textarea>
           <label for="ingredients">Ingredients</label>
         </div>
       </div>
@@ -85,7 +85,7 @@
       <div class="row">
         <div class="input-field col s12">
           <i class="material-icons prefix">restaurant</i>
-          <textarea id="methods" name="methods" class="materialize-textarea"></textarea>
+          <textarea id="methods" name="methods" class="materialize-textarea" required></textarea>
           <label for="methods">Methods</label>
         </div>
       </div>
