@@ -10,12 +10,11 @@
     {% for recipe in recipes %}
     <div class="col s12 m4">
       <div class="card medium">
-        <div class="card-image" id="card-image-size">
-          <!-- if the image link is empty show a basic image -->
+        <div class="card-image card-image-size">
           {% if recipe.image_link == "" %}
-          <img class="image-description" src="https://images.squarespace-cdn.com/content/v1/5c5c3833840b161566b02a76/1573133725500-Y5PCN0V04I86HDAT8AT0/ke17ZwdGBToddI8pDm48kLkXF2pIyv_F2eUT9F60jBl7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0iyqMbMesKd95J-X4EagrgU9L3Sa3U8cogeb0tjXbfawd0urKshkc5MgdBeJmALQKw/WBC_7095.jpg?format=1500w">
+          <img class="image-description" alt="Some food" src="https://images.squarespace-cdn.com/content/v1/5c5c3833840b161566b02a76/1573133725500-Y5PCN0V04I86HDAT8AT0/ke17ZwdGBToddI8pDm48kLkXF2pIyv_F2eUT9F60jBl7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0iyqMbMesKd95J-X4EagrgU9L3Sa3U8cogeb0tjXbfawd0urKshkc5MgdBeJmALQKw/WBC_7095.jpg?format=1500w">
           {% else %}
-          <img class="image-description" src="{{recipe.image_link}}">
+          <img class="image-description" src="{{recipe.image_link}}" alt="{{recipe.recipe_name}}">
           {% endif %}
           <span class="card-title">{{ recipe.recipe_name }}</span>
         </div>
@@ -23,7 +22,7 @@
           <p>{{ recipe.recipe_description }}</p>
         </div>
         <div class="card-action">
-          <a id="red-color" href="{{ url_for('recipe_description', recipe_id = recipe._id)}}">View</a>
+          <a class="red-color" href="{{ url_for('recipe_description', recipe_id = recipe._id)}}">View</a>
         </div>
       </div>
     </div>

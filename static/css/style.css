@@ -1,13 +1,13 @@
 /* Recipe page */
 /* View button */
-.card-action #red-color {
+.card-action .red-color {
     color: #ee6e73;
 }
 
 /* Recipe page and Recipe found page */
 /* Card image */
-#card-image-size {
-    max-height: 40%;
+.card-image-size {
+    max-height: 40% !important;
 }
 
 /* Recipe description page */
