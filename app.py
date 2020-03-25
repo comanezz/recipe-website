@@ -38,7 +38,6 @@ def add_recipe():
     """
     return render_template(
         "addrecipe.html",
-        servings=mongo.db.servings.find(),
         type=mongo.db.recipe_type.find().sort("type_name", 1),
     )
 
@@ -74,9 +73,8 @@ def edit_recipe(recipe_id):
     """
     the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     all_type = mongo.db.recipe_type.find().sort("type_name", 1)
-    all_servings = mongo.db.servings.find()
     return render_template(
-        "editrecipe.html", recipe=the_recipe, type=all_type, servings=all_servings
+        "editrecipe.html", recipe=the_recipe, type=all_type
     )
 
 

@@ -15,17 +15,8 @@
         </div>
         <div class="input-field col s6">
           <i class="material-icons prefix">people</i>
-          <select id="servings" name="serving_number">
-            <option value="" disabled selected>Choose the servings</option>
-            {% for num in servings %}
-                {% if num.serving_number == recipe.serving_number %}
-                <option value="{{num.serving_number}}" selected>{{num.serving_number}}</option>
-                {% else %}
-                <option value="{{num.serving_number}}">{{num.serving_number}}</option>
-                {% endif %}
-            {% endfor %}
-          </select>
-          <label>Servings</label>
+          <input id="servings" name="serving_number" type="number" class="validate" value="{{recipe.serving_number}}" min="1" required>
+          <label for="servings">Servings</label>
         </div>
       </div>
       <!-- Recipe name -->
@@ -62,12 +53,12 @@
         </div>
         <div class="input-field col s12 m4">
           <i class="material-icons prefix">schedule</i>
-          <input id="Preparation_time" name="preparation_time" type="number" class="validate" value="{{recipe.preparation_time}}" required>
+          <input id="Preparation_time" name="preparation_time" type="number" class="validate" value="{{recipe.preparation_time}}" min="1" required>
           <label for="Preparation_time">Preparation Time (min)</label>
         </div>
         <div class="input-field col s12 m4">
           <i class="material-icons prefix">schedule</i>
-          <input id="cooking" name="cooking_time" type="number" class="validate" value="{{recipe.cooking_time}}" required>
+          <input id="cooking" name="cooking_time" type="number" class="validate" value="{{recipe.cooking_time}}" min="1" required>
           <label for="cooking">Cooking Time (min)</label>
         </div>
       </div>
