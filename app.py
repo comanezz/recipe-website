@@ -3,7 +3,10 @@ from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 
-# Import the env.py file where I used it for set up the environment variable for my local workspace
+""" Import the env.py file
+
+where I used it for set up the environment variable for my local workspace
+"""
 from os import path
 
 if path.exists("env.py"):
@@ -34,11 +37,12 @@ def get_recipes():
 def add_recipe():
     """ Add recipe form.
 
-    Redirect the user to the recipe form page that will allow him to enter the information about the recipe then submit the data.
+    Redirect the user to the recipe form page that will allow him to enter
+    the information about the recipe then submit the data.
     """
     return render_template(
         "addrecipe.html",
-        type=mongo.db.recipe_type.find().sort("type_name", 1),
+        type=mongo.db.recipe_type.find().sort("type_name", 1)
     )
 
 
@@ -48,7 +52,7 @@ def insert_recipe():
 
     Send all the data from the form to Mongo Database in a dictionary format.
 
-    Then redirect the user to the get_recipes page
+    Then redirect the user to the get_recipes page.
     """
     recipes = mongo.db.recipes
     recipes.insert_one(request.form.to_dict())
@@ -59,7 +63,8 @@ def insert_recipe():
 def recipe_description(recipe_id):
     """ Recipe description of the recipe selected.
 
-    User redirect to the recipe page he selected from get_recipes page showing all the data related to the recipe.
+    User redirect to the recipe page he selected from get_recipes page showing
+    all the data related to the recipe.
     """
     one_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     return render_template("recipedescription.html", recipe=one_recipe)
@@ -69,7 +74,8 @@ def recipe_description(recipe_id):
 def edit_recipe(recipe_id):
     """ Edit the recipe
 
-    User redirect to the edit page allowing him to edit the recipe he selected in the recipe description page.
+    User redirect to the edit page allowing him to edit the recipe
+    he selected in the recipe description page.
     """
     the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     all_type = mongo.db.recipe_type.find().sort("type_name", 1)
@@ -122,7 +128,8 @@ def delete_recipe(recipe_id):
 def search_recipe():
     """ Search recipe page
 
-    User redirect to the search recipe page allowing him to search for the recipe name.
+    User redirect to the search recipe page allowing him to search
+    for the recipe name.
 
     Once the search is launch, the function search_recipe_name starts.
     """
@@ -157,7 +164,8 @@ def get_type():
 def add_type():
     """ Add type form.
 
-    Redirect the user to the type form page that will allow him to enter the type he wants then submit the data.
+    Redirect the user to the type form page that will allow him
+    to enter the type he wants then submit the data.
     """
     return render_template("addtype.html")
 
@@ -191,7 +199,9 @@ def delete_type(type_id):
 
 if __name__ == "__main__":
     # This app.run is for heroku
-    app.run(host=os.environ.get("IP"), port=int(os.environ.get("PORT")), debug=False)
+    app.run(host=os.environ.get('IP'),
+            port=int(os.environ.get('PORT')),
+            debug=False)
 
     # This app.run is for local vscode
     # app.run(debug=True)
