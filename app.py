@@ -142,6 +142,8 @@ def search_recipe_name():
 
     Ask Mongo to search for the term received in the form.
     Then redirect user to recipe found page.
+    https://docs.mongodb.com/manual/text-search/ and https://docs.mongodb.com/manual/indexes/
+    allowed me to understand how to write the function to find a recipe by his name
     """
     # Get the search term from the form
     search_term = request.form.get("recipe_name")
