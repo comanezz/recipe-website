@@ -23,6 +23,7 @@ mongo = PyMongo(app)
 """ Create index
 
 This index is used for the search_recipe_name function.
+Mentor advise me to put this code outside of the function.
 """
 mongo.db.recipes.create_index([("recipe_name", "text")])
 
